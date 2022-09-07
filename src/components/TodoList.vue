@@ -3,10 +3,10 @@
 
       <div id="TodoList">
 		<h1>{{ msg }}</h1>
-        <div v-for="(todo, index) in $store.state.todos">
+        <div v-for="(todo, index) in $store.state.todos" :key="index">
           {{index}}
-		  <input type="checkbox" id="checkbox" v-model="checked" />
-          <input v-model="todo.value" :key="index">
+		  <input type="checkbox" :checked="todo.done" @click="() => onClick(index, todo)" />
+          <input v-model="todo.value">
           <button @click="deleteTodo(index)">
             Delete task
           </button>
@@ -25,6 +25,7 @@
 	props: {
 	  msg: String
 	},
+	
 	methods: {
 		addTodo: function() {
         const todo = {
@@ -36,9 +37,16 @@
 
 		deleteTodo: function(index) {
 			this.$store.commit('deleteTodo', index)
+		},
+
+		onClick (index, todo) {
+			const value = {...todo};
+			value.done = !todo.done;
+			this.$store.commit('setValue', { index,value}  )
+
 		}
 	}
-  }
+  };
   </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->

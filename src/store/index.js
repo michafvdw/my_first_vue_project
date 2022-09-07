@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default new Vuex.Store({ strict: true,
   state: {
 	todos: [
 		{ id: 1, text: '...', done: true },
@@ -29,6 +29,9 @@ export default new Vuex.Store({
 	},
 	deleteTodo: function (state, index){
 		state.todos.splice(index, 1);
+	},
+	setValue (state, {index ,value}) {
+		Vue.set(state.todos,index, value);
 	}
   },
   actions: {
