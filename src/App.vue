@@ -2,11 +2,24 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+	  <router-link to="/uniware">Uniware</router-link> |
+	  <router-link to="/form">Form</router-link> |
+	  <router-link to="/api">Api</router-link> |
+	  <router-link to="/todo">Todolist</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+	created () {
+		console.log("TEST");
+		console.log(this.$store);
+	}
+};
+</script>
 
 <style>
 #app {

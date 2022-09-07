@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Uniware from '../views/Uniware.vue'
+import Todo from '../views/Todo.vue'
+import Form from '../views/Form.vue'
+import Api from '../views/Api.vue'
+
 
 Vue.use(VueRouter)
 
@@ -10,6 +15,27 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/uniware',
+    name: 'Uniware',
+    component: Uniware
+  },
+  {
+    path: '/todo',
+    name: 'Todo',
+    component: Todo
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: Form
+  },
+  {
+    path: '/api',
+    name: 'Api',
+    component: Api
+  },
+  
   {
     path: '/about',
     name: 'About',
